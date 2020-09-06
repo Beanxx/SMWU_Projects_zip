@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> 회원가입 </title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+  </head>
+  <body>
+    <h2> 회원가입 </h2>
+    <p class="sentence"> 회원가입을 하시면 SOOBIN's web의 정보를 모두 보실 수 있습니다. </p>
+    <form class="p_form" method="GET" action="join.php">
+      아 이 디 : <input type="text" name="id"/> <br>
+      비밀번호 : <input type="password" name="pwd"/> <br>
+      이 메 일 : <input type="email" name="p_email"/> <br>
+      전화번호 : <input type="tel" name="p_tel" placeholder="- 빼고 입력하세요"
+      pattern="[0-9]{2,3}[0-9]{3,4}[0-9]{4}"/> <br>
+
+      <input type="submit" value="확인"/>
+      <input type="reset" value="취소"/>
+    </form>
+  </body>
+</html>

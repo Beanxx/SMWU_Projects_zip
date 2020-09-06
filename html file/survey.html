@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Survey </title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+  </head>
+
+  <body>
+    <h2>설문 조사</h2>
+    <p class="sentence"> 저의 웹 페이지를 방문하신 분들에게 설문조사 참여를 부탁드립니다:) </p>
+
+    <form class="p_survey" method="GET" action="survey.php">
+      <fieldset>
+        <legend>성별과 나이를 입력해주세요.</legend>
+      	성별 :
+	      <input type="radio" name="sex" value="male">남자</input>
+	      <input type="radio" name="sex" value="female">여자</input> <br>
+
+	      <label for="old">나이 : </label>
+	      <input type="number" name="old" size="200" id="old"/>
+      </fieldset> <br>
+
+      <fieldset>
+        <legend> 흥미로웠던 저의 취미 정보에 대해 선택해주세요. (중복선택 가능) </legend>
+	      <input type="checkbox" name="hobby_introduce"> 나의 취미 소개(Hobby Introduce) <br>
+	      <input type="checkbox" name="hobby_experience"> 취미에 대한 나의 경험들(Hobby Experience) <br>
+	      <input type="checkbox" name="hobby_plan"> 취미에 대한 앞으로의 계획(Hobby Plan)
+      </fieldset>
+
+      <p> 설문에 응해주셔서 감사합니다. </p>
+
+      <input type="submit" value="확인"/>
+      <input type="reset" value="취소"/>
+    </form>
+
+    <script type="text/javascript">
+      alert("저의 웹 페이지를 둘러보신 후, 성심성의껏 설문 조사를 해주시면 감사하겠습니다.");
+    </script>
+  </body>
+</html>
