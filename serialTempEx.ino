@@ -3,7 +3,7 @@
 */
 
 //Libraries
-//#include <DHT.h>;
+//#include <DHT.h>; 
 
 //Constants
 //#define DHTPIN 8     // what pin we're connected to
