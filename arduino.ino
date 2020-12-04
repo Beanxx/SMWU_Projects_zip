@@ -1,63 +1,83 @@
-/* How to use the DHT-22 sensor with Arduino uno
-   Temperature and humidity sensor
-*/
+/*************************************************** 
+  This is a library example for the MLX90614 Temp Sensor
 
-//Libraries
-//#include <DHT.h>; 
+  Designed specifically to work with the MLX90614 sensors in the
+  adafruit shop
+  ----> https://www.adafruit.com/products/1747 3V version
+  ----> https://www.adafruit.com/products/1748 5V version
 
-//Constants
-//#define DHTPIN 8     // what pin we're connected to
-//#define DHTTYPE DHT22   // DHT 22  (AM2302)
-//DHT dht(DHTPIN, DHTTYPE); //// Initialize DHT sensor for normal 16mhz Arduino
+  These sensors use I2C to communicate, 2 pins are required to  
+  interface
+  Adafruit invests time and resources providing this open source code, 
+  please support Adafruit and open-source hardware by purchasing 
+  products from Adafruit!
+
+  Written by Limor Fried/Ladyada for Adafruit Industries.  
+  BSD license, all text above must be included in any redistribution
+ ****************************************************/
+
+#include <Wire.h>
+#include <Adafruit_MLX90614.h>
+
+Adafruit_MLX90614 mlx = Adafruit_MLX90614();
+float temp;
 
 
-//Variables
-//int chk;
-//float hum;  //Stores humidity value
-float temp; //Stores temperature value
+void setup() {
+  Serial.begin(115200);
+  pinMode(8, OUTPUT); //G
+  pinMode(7, OUTPUT); // Y
+  pinMode(6, OUTPUT); // R
+  //Serial.println("Adafruit MLX90614 test");  
 
-void setup()
-{
-    Serial.begin(115200);
-    pinMode(8, OUTPUT);
-    //dht.begin();
+  mlx.begin();  
 }
 
-void loop()
-{
-   
-        
-      delay(100);
-      //Read data and store it to variables hum and temp
-      //hum = dht.readHumidity();
-      //temp = dht.readTemperature();
-      temp = 36.5;
+void loop() {
+  //Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempC()); 
+  //Serial.print("*C\tObject = "); Serial.print(mlx.readObjectTempC()); Serial.println("*C");
+//  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempF()); 
+//  Serial.print("*F\tObject = "); Serial.print(mlx.readObjectTempF()); Serial.println("*F");
   
-      //Print temp and humidity values to serial monitor
-      /*Serial.print("Humidity: ");
-      Serial.print(hum);
-      Serial.print(" %, Temp: ");
-      Serial.print(temp);
-      Serial.println(" Celsius");
-      */
-      
-     /* Serial.print("Humidity_in_Arduino: ");
-      Serial.print(hum);
-      Serial.println(" %");*/
-      Serial.print("Temperature_in_Arduino: ");
-      Serial.print(temp);
-      Serial.println(" C");
+  delay(100);
   
-      // 3 LED
-      if(temp >= 36.5){
-          digitalWrite(8, HIGH);
+  temp = mlx.readObjectTempC();
+  Serial.print("Temperature_in_Arduino: ");
+  Serial.print(temp);
+  Serial.println(" C");
+  
+  delay(300);
+  
+  // 3 LED
+      if((35.0<= temp) && (temp < 40.0)){
+          digitalWrite(8, HIGH); // G
+          digitalWrite(7, LOW);
+          digitalWrite(6, LOW);
+          
           delay(1000);
       }
-      else{
+      else if((40.0 <= temp) && (temp < 45.0)){
           digitalWrite(8, LOW);
+          digitalWrite(7, HIGH); // Y
+          digitalWrite(6, LOW);
           delay(1000);
       }
+      else if((45.0 < temp) && (temp < 100)){
+          digitalWrite(8, LOW);
+          digitalWrite(7, LOW);
+          digitalWrite(6, HIGH); // R
+          delay(1000);
+      }
+      else if( (temp < 35) || (100<= temp) ){
+          digitalWrite(8, LOW);
+          digitalWrite(7, LOW);
+          digitalWrite(6, LOW); 
+          delay(1000);      
+      }
+
   
-      delay(300); //Delay 2 sec.
-    
+     
+  
+  //Serial.println();
+  
 }
