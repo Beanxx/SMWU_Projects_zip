@@ -1,5 +1,5 @@
 """ [INFO]
-Input: 
+Input:
   1. Arduino:
    - temperature value from Arduino temperature sensor
   2. Raspberry Pi:
@@ -13,8 +13,8 @@ Ouput:
     - text on LCD according to temperature
     - make a piezo sound according to the temperature
     - Store user information and temperature in text file
-    
-    
+
+
 """
 import time
 import serial
@@ -62,9 +62,9 @@ def main():
     GPIO.setup(LCD_D5, GPIO.OUT)
     GPIO.setup(LCD_D6, GPIO.OUT)
     GPIO.setup(LCD_D7, GPIO.OUT)
-    
+
     lcd_init()
-    
+
     print("********************************************************")
     print("Input ID and name.")
     print("Then touch the temperature sensor")
@@ -76,44 +76,46 @@ def main():
             print("\nbye!!")
             break
         name = input("name: ")
-        
-        
+
+
         while True:
+
             if seri.in_waiting != 0:
                 # receive temperature from Arduino
                 line = seri.readline()
                 arr = line.split()
                 if len(arr) < 3:
                     continue
-                    
+
                 temp = float(arr[1])
 
-                #print("Temperature: %.1f C" % data)
+                #print("Temperature: %.1f C" % temp)
 
                 time.sleep(0.01)
-                
+
                 # temperature processing algorithm
                 # 여기에 알고리즘 추가
-                if(30<temp and temp<100):
+                if(25<temp and temp<100):
                     #print("good")
                     break
-                    
+
+
         print("[info] ID: %s, name: %s, temp: %.2f C\n" % (ID, name, temp))
 
         #LCD
         dataa = str(temp)
         lcd_string("temp : " + dataa + " C", LCD_LINE_1)
-        
-        if temp<35:
+
+        if 25 < temp and temp<30:
             lcd_string("Normal temp!", LCD_LINE_2)
-        if 35<=temp and temp<40:
+        if 30<=temp and temp<37:
             lcd_string("Slight fever!", LCD_LINE_2)
-        if temp>40:
+        if temp>37:
             lcd_string("High fever!!", LCD_LINE_2)
             p=GPIO.PWM(gpio_pin, 100)
             p.start(100)
             p.ChangeDutyCycle(90)
-            
+
             for i in range(len(list)):
                 p.ChangeFrequency(scale[list[i]])
                 if (i+1)%7 == 0:
@@ -126,10 +128,10 @@ def main():
         data = str(ID) +" "+ name +" "+ str(temp)
         f.write(data + '\n')
         f.close()
-        
-        
-        
-        
+
+
+
+
 def lcd_init():
     lcd_byte(0x33,LCD_CMD)
     lcd_byte(0x32,LCD_CMD) # 00110010 Initialise
@@ -146,12 +148,12 @@ def lcd_byte(bits, mode):
 # mode = True for character
 # False for command
     GPIO.output(LCD_RS, mode) # RS
-    
+
 # High bits
     GPIO.output(LCD_D4, False)
     GPIO.output(LCD_D5, False)
     GPIO.output(LCD_D6, False)
-    GPIO.output(LCD_D7, False)  
+    GPIO.output(LCD_D7, False)
     if bits&0x10==0x10:
         GPIO.output(LCD_D4, True)
     if bits&0x20==0x20:
@@ -201,4 +203,3 @@ if __name__ == "__main__":
         pass
     finally:
         GPIO.cleanup()
-
