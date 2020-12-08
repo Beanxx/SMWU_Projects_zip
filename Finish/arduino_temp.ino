@@ -18,7 +18,11 @@ void setup() {
 }
 
 void loop() {
-
+  //Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempC()); 
+  //Serial.print("*C\tObject = "); Serial.print(mlx.readObjectTempC()); Serial.println("*C");
+//  Serial.print("Ambient = "); Serial.print(mlx.readAmbientTempF()); 
+//  Serial.print("*F\tObject = "); Serial.print(mlx.readObjectTempF()); Serial.println("*F");
+  
   delay(100);
   
   temp = mlx.readObjectTempC();
@@ -29,26 +33,26 @@ void loop() {
   delay(300);
   
   // 3 LED
-      if((30<= temp) && (temp < 35.0)){
+      if((25<= temp) && (temp < 30.0)){
           digitalWrite(8, HIGH); // G
           digitalWrite(7, LOW);
           digitalWrite(6, LOW);
           
           delay(1000);
       }
-      else if((35.0 <= temp) && (temp < 40.0)){
+      else if((30.0 <= temp) && (temp < 37.0)){
           digitalWrite(8, LOW);
           digitalWrite(7, HIGH); // Y
           digitalWrite(6, LOW);
           delay(1000);
       }
-      else if((40.0 < temp) && (temp < 50)){
+      else if((37.0 < temp) && (temp < 50)){
           digitalWrite(8, LOW);
           digitalWrite(7, LOW);
           digitalWrite(6, HIGH); // R
           delay(1000);
       }
-      else if( (temp < 30) || (50<= temp) ){
+      else if((temp < 25) || (temp>1000)){
           digitalWrite(8, LOW);
           digitalWrite(7, LOW);
           digitalWrite(6, LOW); 
