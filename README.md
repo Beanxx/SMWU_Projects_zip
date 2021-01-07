@@ -1,8 +1,4 @@
-# Children_Book_Search_Web_Project
-:boy: :girl: 2019-2 Server Operation &amp; Security Class Project : Chilren Book Search Website
-
-
-### :apple: :lemon: :watermelon: 2019-2 서버 운영 및 보안 수업 팀 프로젝트
+### :boy: :girl: SMWU 2019-2 서버 운영 및 보안 수업 팀 프로젝트
 #### :pushpin: Topic : 어린이를 위한 도서 검색 웹 사이트
 
 ##### :curly_loop: 웹 기능
