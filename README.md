@@ -1,4 +1,4 @@
-### :newspaper: SMWU 2020-2 웹프로그래밍응용 수업 실습
+### :newspaper: SMWU 2019-2 웹프로그래밍응용 수업 실습
 #### :pushpin: XML News Editor & Viewer
 
 
