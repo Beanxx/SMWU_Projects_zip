@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="good_style.xsl"?>
+
+<news>
+  <article>
+    <info>
+      <category>공연</category>
+      <publisher>연합뉴스</publisher>
+      <editor>
+        <name>송광호</name>
+        <email edress="buff27@yna.co.kr"></email>
+      </editor>
+      <date>2020-08-03</date>
+    </info>
+
+   <content>
+      <title>창작발레로 만나는 레미제라블</title>
+      <summary>빅토르 위고의 걸작 소설 '레미제라블'을 토대로 한 창작 발레 작품이 관객들과 만난다.</summary>
+   </content>
+  </article>
+
+  <article>
+    <info>
+      <category>공연</category>
+      <publisher>전남일보</publisher>
+      <editor>
+        <name>박상지</name>
+        <email edress="sangji.park@jnilbo.com"></email>
+      </editor>
+      <date>2019-03-04</date>
+    </info>
+
+    <content>
+      <title>뮤지컬 김종욱 찾기</title>
+      <summary>유·스퀘어 문화관은 오는 14일부터 24일까지 로맨틱 코미디 뮤지컬 '김종욱 찾기'를 무대에 올린다.</summary>
+    </content>
+  </article>
+
+    <article>
+  <info>
+    <category>esport</category>
+    <publisher>이데일리</publisher>
+    <editor>
+         <name>노재웅</name>
+         <email edress="ripbird@edaily.co.kr" />
+    </editor>
+    <date>2020-09-20</date>
+  </info>
+  <content>
+    <title>시계 멈춘 PC방 게임사들 상생 지원책 잇따라</title>
+    <summary>국내 주요 게임사들이 PC방과의 상생과 고통 분담에 뜻을 모으고 있다.</summary>
+  </content>
+</article>
+
+<article>
+  <info>
+    <category>esport</category>
+    <publisher>데일리e스포츠</publisher>
+    <editor>
+         <name>남윤성</name>
+         <email edress="thenam@dailyesports.com" />
+    </editor>
+    <date>2020-09-12</date>
+  </info>
+  <content>
+    <title>[GSL] 어윤수 잡은 박한솔, 이신형도 꺾고 데뷔 첫 16강</title>
+    <summary>알파X 박한솔이 어윤수와 이신형을 연파하면서 데뷔 첫 GSL 16강 진출에 성공했다.</summary>
+  </content>
+</article>
+
+    <article>
+            <info>
+                <category>정치</category>
+                <publisher>SBS뉴스</publisher>
+                <editor>
+                  <name>김정기 </name>
+                  <email edress="kimmy123@sbs.co.kr"/>
+                </editor>
+                <date>2020-09-18</date>
+        </info>
+        <content>
+                <title>"확진 7명 중 1명은 의료진" ...우울증·불면증도 심각</title>
+                <summary>전 세계 코로나 확진자가 3천만 명을 넘었다는 소식, 어제(17일) 전해드렸는데 그 환자 7명 가운데 1명은 의료진이라는 조사 결과가 나왔습니다.</summary>
+        </content>
+      </article>
+
+          <article>
+            <info>
+                <category>정치</category>
+                <publisher>KBS뉴스</publisher>
+                <editor>
+                  <name>김빛이라 </name>
+                  <email edress="glory@kbs.co.kr"/>
+                </editor>
+                <date>2020-09-18</date>
+        </info>
+        <content>
+                <title>코로나에도 활용 못한 '디지털 교과서'에 570억 썼다.</title>
+                <summary>구성도 기존 교과서와 다를 게 없다 보니, 굳이 활용할 필요를 못 느낀다는 게 일선 교사들 이야기입니다.</summary>
+        </content>
+      </article>
+
+      <article>
+  <info>
+    <category>fashion</category>
+    <publisher>뉴스렙</publisher>
+    <editor>
+      <name>이진용</name>
+      <email edress="newsrep21@gmail.com"></email>
+    </editor>
+    <date>2019-11-30</date>
+  </info>
+
+  <content>
+    <title>럭셔리 라이프 홈코노미족을 위한 라운지웨어 제안 해피스트니스(happiestness)</title>
+    <summary>라운지 웨어가 화제인 가운데 그 의미에 대한 관심이 높아지고 있다. 이런 패션트랜드를 반영하듯 최근 국내에도 라운지웨어 전문 브랜드 ‘해피스트니스(happiestness)’는 스타일리시한 라운지웨어를 제안해 눈길을 끌고 있다.</summary>
+  </content>
+</article>
+
+
+<article>
+  <info>
+    <category>fashion</category>
+    <publisher>패션엔</publisher>
+    <editor>
+      <name>허유형</name>
+      <email edress="fashionn@fashionn.com"></email>
+    </editor>
+    <date>2020-04-07</date>
+  </info>
+
+  <content>
+    <title>롯데홈쇼핑, MZ세대 겨냥 '패션관'오픈... 매주 100개 브랜드 소개</title>
+    <summary>롯데홈쇼핑이 영타깃 패션 브랜드에 스타일까지 제안하는 모바일 패션 편집숍 '패션관'을 오픈하고, MZ세대 공략에 나선다고 7일 밝혔다.</summary>
+  </content>
+</article>
+
+</news>
