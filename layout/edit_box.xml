@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edittext_id"
+        android:fontFamily="@font/dx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="닉네임을 설정해주세요."
+        android:inputType="text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/edittext_city"/>
+
+    <EditText
+        android:id="@+id/edittext_city"
+        android:fontFamily="@font/dx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="현재 위치한 지역명을 입력해주세요."
+        android:inputType="text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edittext_id" />
+
+    <EditText
+        android:id="@+id/edittext_body"
+        android:fontFamily="@font/dx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="추위/더위 중 잘 타는 체질을 입력해주세요."
+        android:inputType="text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edittext_city" />
+
+    <EditText
+        android:id="@+id/edittext_contents"
+        android:fontFamily="@font/dx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="현재의 옷차림과 상태를 입력해주세요."
+        android:inputType="text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edittext_body"
+        app:layout_constraintBottom_toTopOf="@id/button_dialog_submit"/>
+
+
+    <Button
+        android:id="@+id/button_dialog_submit"
+        android:fontFamily="@font/dx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="수정"
+        android:textColor="#ffff"
+        android:textSize="15dp"
+        android:background="@drawable/buttonstyle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_contents" />
+
+</android.support.constraint.ConstraintLayout>
