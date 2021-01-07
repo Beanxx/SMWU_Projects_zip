@@ -1,4 +1,4 @@
-### :oncoming_police_car: SMWU 데이터 분석 및 활용 수업 term-Project
+### :oncoming_police_car: SMWU 2020-2 데이터 분석 및 활용 수업 term-Project
 #### :pushpin: Topic : 범죄 발생 위치와 경찰서 위치 데이터 분석에 따른 경찰서 위치 추천
 
 ##### :curly_loop: 활용 데이터
