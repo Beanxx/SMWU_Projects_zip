@@ -17,3 +17,7 @@
 - Dictionary.java : 데이터 담을 모델 클래스를 생성하고 Recyclerview에 출력될 값들을 정의해주는 클래스
 - CustomAdapter.java : 편집/삭제 기능 등 Recyclerview의 제어 클래스
 - MainActivity.java 
+
+
+##### :curly_loop: 결과 화면
+![android](https://user-images.githubusercontent.com/64299610/126073784-5d5abe6d-7fd6-47c8-80bb-d9fdd9ce1348.jpg)
