@@ -1,0 +1,7 @@
+news {margin:100px;font-family:함초롬바탕;}
+title {display:block;font-size:15pt;margin-bottom:10px;font-style:bold;color:#000080;}
+publisher {color:#A6A6A6;font-size:small;}
+name {display:block;font-size:small;font-weight:lighter;color:#4374D9;}
+email {display:block;font-style:italic;color:#008000;font-size:small;}
+date {display:block;font-size:small;color:#808080;}
+contents {display:block;margin-top:15px;margin-bottom:15px;text-indent:1em;padding:10px;border-style:solid;border-color:#FFD8D8;}

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<HTML>
+<head>
+<META HTTP-EQUIV="content-type" CONTENT="text/html" charset="utf-8">
+<title>HW#6-DOM_news searcher</title>
+<style type="text/css">
+  body {font-family:맑은 고딕; font-size:15px;}
+</style>
+
+<script language="javascript">
+
+  var xdoc, xmldoc, rootNode, bnode, page_no, page_sum;
+  xdoc = new ActiveXObject ("Msxml.DOMDocument");
+  xdoc.async = false;
+  xdoc.load("newslist_sb.xml");
+
+  function fileload (filename)
+  {
+
+    if(filename) xdoc.load(filename);
+    alert("[파일로드 성공] : " + filename);
+    rootNode = xdoc.documentElement;
+    goList(0);
+  }
+
+  function search()
+  {
+
+
+    var xroot = xdoc.documentElement;
+    var nodeList = xroot.selectNodes('//*[text()=' + searchTitle.value +']');
+
+    //alert(nodeList(0).parentNode.lastChild.text);
+
+    controls.b_category.value = nodeList(0).parentNode.previousSibling.firstChild.text;
+    controls.b_press.value = nodeList(0).parentNode.previousSibling.firstChild.nextSibling.text;
+    controls.b_editor.value = nodeList(0).parentNode.previousSibling.childNodes(2).firstChild.text;
+    controls.b_date.value = nodeList(0).parentNode.previousSibling.lastChild.text;
+    controls.b_title.value = nodeList(0).firstChild.nodeValue;
+    controls.b_summary.value = nodeList(0).parentNode.lastChild.text;
+    //alert(nodeList(0).nextSibling.nodeValue);
+
+    page_no = 0;
+    page_sum = nodeList.length;
+    p_sum.innerText=page_sum;
+    p_no.innerText=page_no+1;
+
+    // var catList = xroot.getElementById('searchCategory');
+    // alert("23");
+    // searchCategory = catList.options[catList.selected].value;
+    // //alert(searchCategory);
+    // alert("4");
+    // var nodeList = xroot.selectNodes('//*[text()=' + searchCategory.value +']');
+    // alert(nodeList.length);
+    // controls.b_category.value = nodeList(0).parentNode.previousSibling.firstChild.text;
+  }
+
+  function newsList ()
+  {
+    var xroot=xdoc.documentElement;
+    var nodeList;
+    nodeList=xdoc.getElementsByTagName("title");
+    var result="";
+    for(i=0;i<xroot.childNodes.length;i++) {
+      result=result+('\n' + " " + (i+1) +". ")+nodeList.item(i).firstChild.nodeValue + '\n';}
+    innerNew.innerText=result;
+
+}
+
+ function goList(num)
+ {
+   page_sum = rootNode.childNodes.length; //총 기사 개수 (8개)
+
+   switch (num)
+   {
+   case 0 : page_no=0; break;
+   case 1 : if (page_no > 0) page_no=page_no - 1; break;
+   case 2 : page_no=page_no + 1;
+     if (page_no == page_sum) page_no=page_no-1;  break;
+   case 3 : page_no=page_sum-1; break;
+   }
+
+   p_no.innerText=page_no+1;
+   p_sum.innerText=page_sum;
+
+   bnode = rootNode.childNodes(page_no);
+   controls.b_category.value = bnode.firstChild.childNodes(0).text;
+   controls.b_press.value = bnode.firstChild.childNodes(1).text;
+   controls.b_title.value = bnode.lastChild.childNodes(0).text;
+   controls.b_editor.value = bnode.firstChild.childNodes(2).firstChild.text;
+   controls.b_date.value = bnode.firstChild.childNodes(3).text;
+   controls.b_summary.value =  bnode.childNodes(1).text;
+
+   innerNew.innerText = bnode.xml;
+
+ }
+
+
+
+ function newAppend()
+ {
+   p_no.innerText='?';
+   p_sum.innerText=page_sum;
+
+   //빈 칸으로 변경.
+   controls.b_category.value = '';
+   controls.b_press.value = '';
+   controls.b_title.value = '';
+   controls.b_editor.value =  '';
+   controls.b_date.value = '';
+   controls.b_summary.value = '';
+   innerNew.innerText = '<article>\n   <category/>\n   <publisher/>\n   <title/>\n   <editor/>\n   <date/>\n   <summary/>\n</article>' ;
+ }
+
+
+ function saveAppend()
+ {
+   if (p_no.innerText=='?')  // 신규
+   {
+     bnode = xdoc.createElement('article');
+     cnode = xdoc.createElement('category');
+     bnode.appendChild(cnode);
+     cnode = xdoc.createElement('publisher');
+     bnode.appendChild(cnode);
+     cnode = xdoc.createElement('title');
+     bnode.appendChild(cnode);
+     cnode = xdoc.createElement('editor');
+     bnode.appendChild(cnode);
+     cnode = xdoc.createElement('date');
+     bnode.appendChild(cnode);
+     cnode = xdoc.createElement('summary');
+     bnode.appendChild(cnode);
+
+     rootNode.appendChild(bnode); //신규 기사 추가
+
+     page_no = page_sum; //마지막 기사 번호로 추가
+     page_sum++;
+     p_no.innerText=page_no+1;
+     p_sum.innerText=page_sum;
+   }
+
+   bnode = rootNode.childNodes(page_no);
+   bnode.childNodes(0).text = controls.b_category.value ;  //신규 기사의 노드를 빈 칸에 출력
+   bnode.childNodes(1).text = controls.b_press.value;
+   bnode.childNodes(2).text = controls.b_title.value;
+   bnode.childNodes(3).text = controls.b_editor.value;
+   bnode.childNodes(4).text = controls.b_date.value;
+   bnode.childNodes(5).text = controls.b_summary.value;
+   innerNew.innerText = bnode.xml;
+
+ }
+
+</script>
+</head>
+
+<body>
+  <ul>
+    <table height="21" cellSpacing="0" borderColorDark="#808080" width="580" borderColorLight="#ffffff" border="1">
+      <tbody>
+        <tr>
+          <td height="63" width="265" bgcolor="#B2CCFF">
+            <p>&nbsp;&nbsp;&nbsp;<b><font size="3"><mark>(1) 기사선택 화면</mark></font></b></p>
+            <p>&nbsp;&nbsp;&nbsp;<input type="submit" name="검색" value="뉴스목록 파일로드" onClick="fileload('newslist_sb.xml')"></input></p>
+
+            <div>
+              <table border="1" width="280">
+                <tr>
+                  <td width="270">
+                    <p>&nbsp;<span style="font-weight: bold; font-size:medium;"><mark>검색하기</mark></span><br/>
+
+                      <input type="checkbox" id="searchCheck" name="searchCheck" checked>날짜 :</input>
+                      <select name="searchDate" id="searchDate" size="1">
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2019</option>
+                        <option selected>2020</option>
+                      </select>년
+
+                      <select name="searchDate" id="searchDate" size="1">
+                        <option selected>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                      </select>월
+
+                      <select name="searchDate" id="searchDate" size="1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                        <option>26</option>
+                        <option>27</option>
+                        <option>28</option>
+                        <option>29</option>
+                        <option>30</option>
+                        <option>31</option>
+                      </select>일<br/>
+                      <form>
+                      <input type="checkbox" name="searchCheck" id-"searchCheck" checked>카테고리 :
+                        <select name="searchCategory" id="searchCategory" size="1">
+                          <option value="공연">공연</option>
+                          <option value="esport">esport</option>
+                          <option value="정치">정치</option>
+                          <option value="fashion">fashion</option>
+                        </select><br/></input>
+                      </form>
+                      <input type="checkbox" name="searchCheck" id="searchCheck">제목 :</input>
+                      <input type="text" name="searchTitle" id="searchTitle" size="23"/></p>
+
+                      <p>&nbsp;<input type="button" name="기사 검색" value="기사 원문 검색" onclick="search()"></p>
+
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <p>&nbsp;&nbsp;&nbsp;전체보기 &nbsp; <input type=button name="전체기사 목록" value="전체기사 목록보기" onClick="newsList('xslApply.xml')"></p>
+
+              <p>&nbsp;&nbsp;&nbsp;새로만들기 &nbsp; <input type=button name="신규기사" value="신규기사 작성" onClick="newAppend()"></p>
+            </td>
+
+            <td height="65" width="330" bgcolor="#D9E5FF" valign="top">
+              <div id="result2">
+                <br/>
+                &nbsp;&nbsp;&nbsp;<b><font size="3"><mark>(2) 기사목록 편집화면</mark></font></b><br/><br/>
+
+                <table border="1" width="320">
+                  <tr>
+                    <td valign="top"><br/>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type=button onclick=goList(0) value="|◀">&nbsp;&nbsp;
+                      <input type=button onclick=goList(1) value=" ◀ ">&nbsp;&nbsp;
+                      <input type=button onclick=goList(2) value=" ▶ ">&nbsp;&nbsp;
+                      <input type=button onclick=goList(3) value="▶|"> <br/>
+
+
+                      <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;기사번호 : <span id="p_no">0</span> &nbsp; (총 기사 개수 : <span id="p_sum">n</span>)</p>
+
+                      <form id=controls method=get>
+                        <div id="resDiv2">
+                          <p>&nbsp;카테고리 : <input size="5" name="b_category" /> &nbsp;
+                          신문사 : <input size="8" name="b_press" /></p>
+                          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;기자 : <input size="5" name="b_editor" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          날짜 : <input size="8" name="b_date" /></p>
+                          <p>제목 : &nbsp;&nbsp;<textarea cols="36" rows="2" name="b_title" style="overflow:hidden"></textarea></p>
+                          <p>내용 : &nbsp;&nbsp;<textarea cols="36" rows="8" name="b_summary" style="overflow:hidden"></textarea><p>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <input type="button" name="검색" value=" 저장 " onClick="saveAppend();"><br/>
+                       </div>
+                    </form>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="590" height="9" bgcolor="#FFFFCC" colspan="2">
+            <div id="innerNew">
+              <p><font color="gray"> &nbsp;&nbsp; 이곳에서 전체기사 목록 및 기사들의 xml 형태를 확인해보세요:) </font></p><br/><br/>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </ul>
+</body>
+</html>
