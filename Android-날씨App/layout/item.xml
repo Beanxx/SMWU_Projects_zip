@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/id_nickname"
+        android:background="@drawable/textbutton"
+        android:textColor="#ffff"
+        android:fontFamily="@font/dx"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_gravity="left"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/id_city"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/id_city"
+        android:background="@drawable/textbutton"
+        android:textColor="#ffff"
+        android:fontFamily="@font/dx"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_gravity="left"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="12dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/id_nickname"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/id_body"
+        android:background="@drawable/textbutton"
+        android:textColor="#ffff"
+        android:fontFamily="@font/dx"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_gravity="left"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/id_city"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/id_contents"
+        android:background="@drawable/textbutton"
+        android:textColor="#ffff"
+        android:layout_width="400dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/dx"
+        android:padding="5dp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/id_body"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>
