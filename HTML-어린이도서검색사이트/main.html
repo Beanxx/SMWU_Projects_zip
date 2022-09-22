@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="project.css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<title>KInDBooks</title>
+</head>
+
+<body>
+ 
+ <header>
+   <a id="logo" href="main.html">KIDS</a><!--로고 디자인 후 이미지로 넣는게 나을 듯-->
+   <span class="right"> <!--교재 내용을 참고한 것일뿐 필요에 의해 class 바꾸어도 상관없음-->
+    <a href="login.html" target="display_area">로그인</a> | <!--로그인 API 사용하는 방법으로 수정할 것-->
+	<a href="signup.html" target="_blank">회원가입</a> |
+	<a href="mypage.html" target="display_area">마이페이지</a>
+	</span>
+ </header>
+ 
+  <script type=text/javascript>
+ function Search()
+ {
+ var dom=document.getElementByld("search");
+ document.write("검색완료 창 나올 것");
+ }
+ 
+ function scroll_follow(id) {
+ $(window).scroll(function()
+ { var position = $(window).scrollTop();
+   $(id).stop().animate({top:position+"px"},1); });
+   }
+   scroll_follow("#scroll");
+   $(document).ready(function(){for(var i=0; i<200; i++) 
+   {$('#brr').html($('#brr').html() + "<br>" +i);} });
+ </script>
+ 
+ <div id="wrap">
+ 
+ <div id="category"> <!--class, style 등 설정할 것은 설정하기-->
+ <table border="0"> <!--알라딘 카테고리 line 277 부터 있음-->
+ <tr>
+  <td><a href="해당 페이지">카테고리 1</a></td>
+ </tr>
+  <tr>
+  <td><a href="해당 페이지">카테고리 2</a></td>
+ </tr>
+  <tr>
+  <td><a href="해당 페이지">카테고리 3</a></td>
+ </tr>
+  <tr>
+  <td><a href="해당 페이지">카테고리 4</a></td>
+ </tr>
+  <tr>
+  <td><a href="해당 페이지">카테고리 5</a></td>
+ </tr>
+  <tr>
+  <td><a href="해당 페이지">카테고리 6</a></td>
+ </tr>
+ </table>
+ </div>
+
+<div id="bookSearch">
+<form> <!--method="post" action="" action 뭐가 들어가야할 지 아직 모르겠음-->
+<input id="search" type="text" size="100" placeholder="네가 읽고 싶은 책을 검색해봐!!"/>
+<input type="button" value="검색" onclick="Search()"/>
+</form>
+</div>
+</div> <!--카테고리, 검색창 묶어놓은 것-->
+
+<div id="scroll">
+  <a href = "dictionary.html" target = "dictionary.jpg">
+  <img src = "dictionary.jpg" width = "200px" height = "200px">
+  </a> <!--사전 API-->
+</div>
+
+<img src="메타몽.jpg" id="mainpic"> <!--메인 사진-->
+</body>
+
+</html>

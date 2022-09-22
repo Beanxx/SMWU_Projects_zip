@@ -1,0 +1,7 @@
+#scroll {position:sticky; float:right;} /*계속 따라다니게 해야함 미완*/ 
+#logo {font-size: 48px; display:block; text-align:center;} /*로고 디자인 후 이미지로 넣는게 나을 듯*/
+#category {float: left; margin-left:10px;}
+#bookSearch{position:absolute; left: 300px;}
+#mainpic {margin-top: 150px; display:block; margin-left:auto; margin-right:auto;} /*사진선택되면 위치조정*/
+.right{display:block; font-size:10pt; text-align:right; color: gray;} /*hover: 마우스 커서가 위치한 요소선택*/
+#wrap{margin-top:100px}
