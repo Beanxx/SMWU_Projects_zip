@@ -1,0 +1,38 @@
+#main {margin:0 auto;width:750px;font-family:배달의민족 도현;}
+header {width:710px;background-color:#FFD8D8; margin:5px; padding:15px; }
+nav {width:730px;text-align:center;background-color:#FAECC5; margin:5px; padding:5px;}
+nav a {padding:45px;color:black;}
+aside {width:120px; height:443px;background-color:#CEFBC9; float:right; margin-right:5px;padding:5px;}
+footer {width:740px; height:30px;clear:both; background-color:#D9E5FF; text-align:center; margin:5px;}
+iframe {margin-left:5px; margin-bottom: 5px; float:left; }
+#logo {color:black;font-size:25pt;margin-left:235px;}
+h4 {text-align: center;margin-left:8px}
+#plus {text-align:center;font-size:small;color:gray;font-family:DX경필고딕B;}
+#footers {font-size:small;color:#6B66FF;font-family:DX경필고딕B;}
+#asides {font-size:11px;font-family:DX경필고딕B;}
+#join {font-family:배달의민족 도현; color:#A566FF; padding:3px;position:fixed;top:20px;left:630px;border:outset #6799FF;}
+#survey {font-family:배달의민족 도현; color:#A566FF; padding:3px;position:fixed;top:20px;left:680px;border:outset #6799FF;}
+.p_form {font-family:DX경필고딕B;}
+#p_survey {font-family:DX경필고딕B;margin:50px;}
+
+
+#hobby_introduce {font-family:DX경필고딕B;}
+a {text-decoration:none;}
+h2 {font-family:배달의민족 도현;text-align:center;}
+.sentence {font-family:DX경필고딕B;font-size:10pt;text-align:center;color:#A566FF;}
+.list ul li {margin-left:170px;font-size:16px;}
+li.camera {list-style-image: url("camera.png");}
+li.music {list-style-image: url("music.png")}
+li.travel {list-style-image: url("travel.png")}
+li.guitar {list-style-image: url("guitar.png")}
+ul a {color:#F15F5F;}
+
+#hobby_experience {font-family:DX경필고딕B;}
+table {table-layout:fixed; text-align: center;}
+#songtable th {background:silver;}
+#songtable th,td {width:100px;font-size:10pt}
+small {font-size:14px;color:#353535;}
+.explain {font-size:small;color:#4374D9;text-align: center;}
+
+#hobby_plan {font-family:DX경필고딕B;}
+#traveltable td{width:200px;}

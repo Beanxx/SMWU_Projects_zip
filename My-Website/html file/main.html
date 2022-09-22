@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Welcome to SB's web </title>
+    <link rel="stylesheet" type="text/css" href="styless.css"/>
+</head>
+<body id="main">
+  <div id="header">
+    <a id="logo" href="main.html">SOOBIN's Web</a>
+    <p id="plus">저의 웹페이지에 놀러오신걸 환영합니다.</p>
+    <a id="join" href="join.html" title="회원가입하기" target="frame">Join</a>
+    <a id="survey" href="survey.html" title="설문 조사하기" target="frame">Survey</a>
+
+    <div id="days">
+    <script type="text/javascript">
+      var today = new Date();
+      var m = today.getMonth() + 1;
+      var d = today.getDate();
+  	  var a = today.getDay();
+
+  	  if (a=="1")
+  	    a="월"
+     	else if (a=="2")
+  	    a="화"
+  	  else if (a=="3")
+  	    a="수"
+    	else if (a=="4")
+  	    a="목"
+    	else if (a=="5")
+    	  a="금"
+    	else if (a=="6")
+    	  a="토"
+    	else if (a=="7")
+  	    a="일"
+
+      document.write("오늘은 ? " + m + "월 " + d + "일 " + a + "요일");
+    </script>
+    </div>
+   <script type="text/javascript">
+    function changeColor(id, color) {
+      document.getElementById(id).style.background = color;
+    }
+   </script>
+   <button id="color" onclick = "changeColor('header', '#D9E5FF');"> Blue </button>
+   <button id="colors" onclick = "changeColor('header', '#E8D9FF');"> Purple </button>
+   <button id="colorss" onclick = "changeColor('header', '#FAE0D4');"> Orange </button>
+ </div>
+
+
+  <nav>
+    <a href="hobby_introduce.html" title="취미 소개 보기" target="frame">Hobby Introduce</a>
+    <a href="hobby_experience.html" title="취미 경험 보기" target="frame">Hobby Experience</a>
+    <a href="hobby_plan.html"title="취미 계획 보기" target="frame">Hobby Plan</a>
+  </nav>
+
+  <article>
+    <iframe name="frame" src="pooh.png" width="600px" height="450px"></iframe>
+  </article>
+
+  <aside>
+    <h4>My profile</h4>
+    <p id="asides">
+      -name : 최수빈 <br/>
+      -birth : 12.11. <br/>
+      -univ. : 숙명여자대학교<br/>
+      -marjor : IT공학 전공<br/>
+      -grade : 3학년 <br/>
+      -MBTI : ISFJ </p>
+  </aside>
+
+  <footer>
+  <p id="footers"> 저의 웹페이지를 방문해주셔서 감사합니다. 다음에 또 놀러오세요~</p>
+  </footer>
+</body>
+</html>
